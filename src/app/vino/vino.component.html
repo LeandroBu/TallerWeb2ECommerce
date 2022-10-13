@@ -1,0 +1,71 @@
+<mat-toolbar color="primary">
+    <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+      <mat-icon>menu</mat-icon>
+    </button>
+    <span>AnguBar</span>
+
+    <button mat-button [matMenuTriggerFor]="menu">Vinos</button> 
+          <mat-menu #menu="matMenu">
+              <button mat-menu-item [matMenuTriggerFor]="vinoPortipo">Por Tipo</button>
+              <button mat-menu-item [matMenuTriggerFor]="vinoPorBodega">Por Bodega</button>
+          </mat-menu>
+          <mat-menu #vinoPortipo="matMenu">
+            <button mat-menu-item>Tinto</button>
+            <button mat-menu-item>Blanco</button>
+          </mat-menu>
+          <mat-menu #vinoPorBodega="matMenu">
+            <button mat-menu-item>La Rural</button>
+            <button mat-menu-item>Malbec</button>
+          </mat-menu>
+
+
+    <button mat-button [matMenuTriggerFor]="menuCervezas">Cervezas</button> 
+          <mat-menu #menuCervezas="matMenu">
+                  <button mat-menu-item [matMenuTriggerFor]="cervezasPorMarca">Por Marca</button>
+                  <button mat-menu-item [matMenuTriggerFor]="cervezasPorTipo">Por Tipo</button>
+                  <button mat-menu-item [matMenuTriggerFor]="cervezasPorColor">Por Color</button>
+          </mat-menu>
+          <mat-menu #cervezasPorMarca="matMenu">
+            <button mat-menu-item>Patagonia</button>
+            <button mat-menu-item>Imperial</button>
+          </mat-menu>
+          <mat-menu #cervezasPorTipo="matMenu">
+            <button mat-menu-item>Ipa</button>
+            <button mat-menu-item>Stout</button>
+          </mat-menu>
+          <mat-menu #cervezasPorColor="matMenu">
+            <button mat-menu-item>Rubia</button>
+            <button mat-menu-item>Roja</button>
+          </mat-menu>
+
+    <button mat-button [matMenuTriggerFor]="menuWhiskie">Whiskies</button> 
+            <mat-menu #menuWhiskie="matMenu">
+                <button mat-menu-item [matMenuTriggerFor]="whiskiePorMarca">Por Marca</button>
+                <button mat-menu-item [matMenuTriggerFor]="whiskiePorTipo">Por Tipo</button>
+                <button mat-menu-item [matMenuTriggerFor]="whiskiePorRegion">Por Región</button>
+            </mat-menu>
+            <mat-menu #whiskiePorMarca="matMenu">
+              <button mat-menu-item>Johnnie Walker</button>
+              <button mat-menu-item>Jameson</button>
+            </mat-menu>
+            <mat-menu #whiskiePorTipo="matMenu">
+              <button mat-menu-item>Scotch</button>
+              <button mat-menu-item>Bourbon</button>
+            </mat-menu>
+            <mat-menu #whiskiePorRegion="matMenu">
+              <button mat-menu-item>Escocia</button>
+              <button mat-menu-item>Irlanda</button>
+            </mat-menu>    
+
+    <span class="example-spacer"></span>
+    <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
+      <mat-icon>sports_bar</mat-icon>
+    </button>
+
+    <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
+      <mat-icon>shopping_cart</mat-icon>
+    </button>
+
+    <H1>VINO</H1>
+    
+  </mat-toolbar>
