@@ -10,8 +10,8 @@
               <button mat-menu-item [matMenuTriggerFor]="vinoPorBodega">Por Bodega</button>
           </mat-menu>
           <mat-menu #vinoPortipo="matMenu">
-            <button mat-menu-item>Tinto</button>
-            <button mat-menu-item>Blanco</button>
+            <button mat-menu-item routerLink="/vino">Tinto</button>
+            <button mat-menu-item routerLink="/vino">Blanco</button>
           </mat-menu>
           <mat-menu #vinoPorBodega="matMenu">
             <button mat-menu-item>La Rural</button>
@@ -45,8 +45,8 @@
                 <button mat-menu-item [matMenuTriggerFor]="whiskiePorRegion">Por Región</button>
             </mat-menu>
             <mat-menu #whiskiePorMarca="matMenu">
-              <button mat-menu-item>Johnnie Walker</button>
-              <button mat-menu-item>Jameson</button>
+              <button mat-menu-item routerLink="/whisky">Johnnie Walker</button>
+              <button mat-menu-item routerLink="/whisky">Jameson</button>
             </mat-menu>
             <mat-menu #whiskiePorTipo="matMenu">
               <button mat-menu-item>Scotch</button>

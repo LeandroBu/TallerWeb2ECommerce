@@ -17,6 +17,7 @@ import { LoginComponent } from './login/login.component';
 import { MatFormFieldModule } from "@angular/material/form-field";
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatInputModule} from '@angular/material/input';
+import { WhiskyComponent } from './whisky/whisky.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { MatInputModule} from '@angular/material/input';
     NavbarComponent,
     VinoComponent,
     BebidasComponent,
-    LoginComponent
+    LoginComponent,
+    WhiskyComponent
   ],
   imports: [
     BrowserModule,
