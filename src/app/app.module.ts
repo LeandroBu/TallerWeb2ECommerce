@@ -13,14 +13,12 @@ import { MatFormFieldModule } from "@angular/material/form-field";
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatInputModule} from '@angular/material/input';
 import { BebidasComponent } from './components/bebidas/bebidas.component';
-import { LoginComponent } from './components/login/login.component';
 import { VinoComponent } from './components/vino/vino.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { HomeComponent } from './components/home/home.component';
 import { HttpClientModule } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
-import { RegistroComponent } from './components/registro/registro.component';
-import { VerificarCuentaComponent } from './components/verificar-cuenta/verificar-cuenta.component';
+import { AuthComponent } from './components/auth/auth.component';
 
 @NgModule({
   declarations: [
@@ -29,9 +27,7 @@ import { VerificarCuentaComponent } from './components/verificar-cuenta/verifica
     NavbarComponent,
     VinoComponent,
     BebidasComponent,
-    LoginComponent,
-    RegistroComponent,
-    VerificarCuentaComponent
+    AuthComponent
   ],
   imports: [
     BrowserModule,
