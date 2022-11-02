@@ -1,4 +1,4 @@
-.contenedor {
+/* .contenedor {
     display: flex;
     justify-content: center;
     margin: 100px 50px;
@@ -21,4 +21,41 @@
   } 
   * {
     box-sizing: border-box;
+  } */
+
+  .divContainer {
+    height: 100vh;
+    /* width: 100vw; */
+  }
+
+  
+  .loginBienvenido {
+    margin-bottom: -7px;
+  }
+  
+  .forgotPassword {
+    color: #2474b6;
+    cursor: pointer;
+    text-decoration: none;
+    font-size: 14px;
+  }
+  
+  .registerLink {
+    font-size: 14px;
+  }
+  
+  .registerLinkP {
+    color: #2474b6;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  
+  .registerLinkP:hover {
+    color: #08497e;
+    text-decoration: underline;
+    /* transition: ease 0.4s; */
+  }
+  
+  .form-control {
+    border: 1px solid #333333;
   }

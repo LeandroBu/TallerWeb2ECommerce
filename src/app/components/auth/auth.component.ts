@@ -1,7 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { Observable, share } from 'rxjs';
 
 
@@ -24,13 +25,14 @@ export class AuthComponent implements OnInit {
  //CONSTRUCTOR
  constructor(
    protected router: Router,
-   private formBuilder: FormBuilder,
-   protected httpClient: HttpClient
+   private formBuilder: UntypedFormBuilder,
+   protected httpClient: HttpClient,
+   private toastr: ToastrService
  ) {
    this.screen = 'login';
-   this.formLogin = FormGroup;
-   this.formRegistro = FormGroup;
-   this.formConfirmacion = FormGroup;
+   this.formLogin = UntypedFormGroup;
+   this.formRegistro = UntypedFormGroup;
+   this.formConfirmacion = UntypedFormGroup;
    this.errors = {
      nombre: '',
      apellido: '',
@@ -51,8 +53,8 @@ export class AuthComponent implements OnInit {
  ngOnInit(): void {
    //CREACION DE FORMULARIO LOGIN
    this.formLogin = this.formBuilder.group({
-     email: new FormControl('', [Validators.required, Validators.email]),
-     password: new FormControl('', [
+     email: new UntypedFormControl('', [Validators.required, Validators.email]),
+     password: new UntypedFormControl('', [
        Validators.required,
        Validators.minLength(6),
      ]),
@@ -60,11 +62,11 @@ export class AuthComponent implements OnInit {
 
    //CREACION DE FORMULARIO REGISTRO
    this.formRegistro = this.formBuilder.group({
-     nombre: new FormControl('', Validators.required),
-     apellido: new FormControl('', Validators.required),
-     direccion: new FormControl('', Validators.required),
-     email: new FormControl('', [Validators.required, Validators.email]),
-     password: new FormControl('', [
+     nombre: new UntypedFormControl('', Validators.required),
+     apellido: new UntypedFormControl('', Validators.required),
+     direccion: new UntypedFormControl('', Validators.required),
+     email: new UntypedFormControl('', [Validators.required, Validators.email]),
+     password: new UntypedFormControl('', [
        Validators.minLength(8),
        Validators.required,
        Validators.pattern(
@@ -75,7 +77,7 @@ export class AuthComponent implements OnInit {
 
    //CREACION DE FORMULARIO DE CONFIRMACION
    this.formConfirmacion = this.formBuilder.group({
-     codigo: new FormControl('', [Validators.required]),
+     codigo: new UntypedFormControl('', [Validators.required]),
    });
  }
 
@@ -102,7 +104,9 @@ export class AuthComponent implements OnInit {
        this.SetearUserId(); //Decodifico el token y obtengo el ID del usuario
        this.errorsLogin.usuarioIncorrecto = '';
        this.router.navigate(['/']).then(() => {
-         window.location.reload();
+        
+        //  window.location.reload(); 
+         this.toastr.success('Se ha logueado exitosamente');
        }); //Se dirige al home y refresca
      },
      (error) => {
@@ -151,7 +155,8 @@ export class AuthComponent implements OnInit {
    res.subscribe(
      (value) => {
        this.errorsLogin.usuarioNoConfirmado = '';
-       alert('Usuario confirmado');
+      //  alert('Usuario confirmado');
+      this.toastr.success('Usuario confirmado con éxito');
        this.router.navigate(['/login']).then(() => {
         window.location.reload();
       });
@@ -208,7 +213,8 @@ export class AuthComponent implements OnInit {
         });
        },
        () => {
-         alert('Error al registrar el usuario');
+        this.toastr.error('Error al registrar el usuario');
+        //  alert('Error al registrar el usuario');
        }
      );
 

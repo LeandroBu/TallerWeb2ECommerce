@@ -19,6 +19,7 @@ import { HomeComponent } from './components/home/home.component';
 import { HttpClientModule } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
 import { AuthComponent } from './components/auth/auth.component';
+import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
   declarations: [
@@ -43,7 +44,8 @@ import { AuthComponent } from './components/auth/auth.component';
     FormsModule,
     MatInputModule,
     HttpClientModule,
-    CommonModule
+    CommonModule,
+    ToastrModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]
