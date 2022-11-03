@@ -1,10 +1,7 @@
 <mat-toolbar color="primary">
-    <!-- <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
-      <mat-icon>menu</mat-icon>
-    </button> -->
     <button mat-button routerLink="/home"><h1>AnguBar</h1></button>
 
-    <button mat-button [matMenuTriggerFor]="menu">Vinos</button> 
+    <button mat-button [matMenuTriggerFor]="menu" routerLink="/vinos">Vinos</button> 
           <mat-menu #menu="matMenu">
               <button mat-menu-item [matMenuTriggerFor]="vinoPortipo">Por Tipo</button>
               <button mat-menu-item [matMenuTriggerFor]="vinoPorBodega">Por Bodega</button>
@@ -38,7 +35,7 @@
             <button mat-menu-item>Roja</button>
           </mat-menu>
 
-    <button mat-button [matMenuTriggerFor]="menuWhiskie">Whiskies</button> 
+    <button mat-button [matMenuTriggerFor]="menuWhiskie" routerLink="/whiskies">Whiskies</button> 
             <mat-menu #menuWhiskie="matMenu">
                 <button mat-menu-item [matMenuTriggerFor]="whiskiePorMarca">Por Marca</button>
                 <button mat-menu-item [matMenuTriggerFor]="whiskiePorTipo">Por Tipo</button>

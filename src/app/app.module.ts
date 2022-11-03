@@ -20,6 +20,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
 import { AuthComponent } from './components/auth/auth.component';
 import { ToastrModule } from 'ngx-toastr';
+import { WhiskyComponent } from './components/whisky/whisky.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,9 @@ import { ToastrModule } from 'ngx-toastr';
     NavbarComponent,
     VinoComponent,
     BebidasComponent,
-    AuthComponent
+    AuthComponent,
+    VinoComponent,
+    WhiskyComponent
   ],
   imports: [
     BrowserModule,
