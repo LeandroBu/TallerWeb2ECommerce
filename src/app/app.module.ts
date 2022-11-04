@@ -20,6 +20,7 @@ import { ToastrModule } from 'ngx-toastr';
 import { AuthComponent } from './components/auth/auth.component';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
+import { FooterComponent } from './components/footer/footer.component';
 
 
 @NgModule({
@@ -30,7 +31,8 @@ import { HttpClientModule } from '@angular/common/http';
     VinoComponent,
     BebidasComponent,
     WhiskyComponent,
-    AuthComponent
+    AuthComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
