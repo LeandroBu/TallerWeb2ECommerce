@@ -1,6 +1,9 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { UntypedFormBuilder, UntypedFormControl ,UntypedFormGroup,Validators } from '@angular/forms';
+import { FormGroup } from '@angular/forms';
+import { Validators } from '@angular/forms';
+import { FormControl } from '@angular/forms';
+import { FormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { Observable, share } from 'rxjs';
@@ -24,14 +27,14 @@ export class AuthComponent implements OnInit {
  //CONSTRUCTOR
  constructor(
    protected router: Router,
-   private formBuilder: UntypedFormBuilder,
+   private formBuilder: FormBuilder,
    protected httpClient: HttpClient,
    private toastr: ToastrService
  ) {
    this.screen = 'login';
-   this.formLogin = UntypedFormGroup;
-   this.formRegistro = UntypedFormGroup;
-   this.formConfirmacion = UntypedFormGroup;
+   this.formLogin = FormGroup;
+   this.formRegistro = FormGroup;
+   this.formConfirmacion = FormGroup;
    this.errors = {
      nombre: '',
      apellido: '',
@@ -52,8 +55,8 @@ export class AuthComponent implements OnInit {
  ngOnInit(): void {
    //CREACION DE FORMULARIO LOGIN
    this.formLogin = this.formBuilder.group({
-     email: new UntypedFormControl('', [Validators.required, Validators.email]),
-     password: new UntypedFormControl('', [
+     email: new FormControl('', [Validators.required, Validators.email]),
+     password: new FormControl('', [
        Validators.required,
        Validators.minLength(6),
      ]),
@@ -61,11 +64,11 @@ export class AuthComponent implements OnInit {
 
    //CREACION DE FORMULARIO REGISTRO
    this.formRegistro = this.formBuilder.group({
-     nombre: new UntypedFormControl('', Validators.required),
-     apellido: new UntypedFormControl('', Validators.required),
-     direccion: new UntypedFormControl('', Validators.required),
-     email: new UntypedFormControl('', [Validators.required, Validators.email]),
-     password: new UntypedFormControl('', [
+     nombre: new FormControl('', Validators.required),
+     apellido: new FormControl('', Validators.required),
+     direccion: new FormControl('', Validators.required),
+     email: new FormControl('', [Validators.required, Validators.email]),
+     password: new FormControl('', [
        Validators.minLength(8),
        Validators.required,
        Validators.pattern(
@@ -76,7 +79,7 @@ export class AuthComponent implements OnInit {
 
    //CREACION DE FORMULARIO DE CONFIRMACION
    this.formConfirmacion = this.formBuilder.group({
-     codigo: new UntypedFormControl('', [Validators.required]),
+     codigo: new FormControl('', [Validators.required]),
    });
  }
 
