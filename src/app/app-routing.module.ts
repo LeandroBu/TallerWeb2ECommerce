@@ -5,6 +5,7 @@ import { BebidasComponent } from './components/bebidas/bebidas.component';
 import { HomeComponent } from './components/home/home.component';
 import { VinoComponent } from './components/vino/vino.component';
 import { WhiskyComponent } from './components/whisky/whisky.component';
+import { InfoBebidaComponent } from './components/info-bebida/info-bebida.component';
 
 
 const routes: Routes = [
@@ -13,7 +14,8 @@ const routes: Routes = [
   {path: 'bebidas', component: BebidasComponent},
   {path: 'login', component:AuthComponent},
   {path: 'vino', component:VinoComponent},
-  {path: 'whisky', component:WhiskyComponent}
+  {path: 'whisky', component:WhiskyComponent},
+  {path: 'info/:id', component:InfoBebidaComponent}
 ];
 
 @NgModule({

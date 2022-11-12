@@ -1,5 +1,26 @@
+<div class="movie-items full-width">
+    <div class="title-hd">
+      <h2>Todas las Bebidas</h2>
+      <a routerLink="/bebidas" style="color: white">Ver todos</a>
+    </div>
+    <div style="display: flex; flex-wrap: wrap" >
+      <div *ngFor="let bebida of bebidas">
+        <div class="card">
+          <a routerLink="/info/{{ bebida.id }}" class="a">
+            <div class="info">
+              <span style="font-size: 15px; font-weight: bold; color: white"
+                >Ver info</span
+              >
+            </div>
+            <img class="imagen" src="{{ bebida.img }}" />
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
 
-<div class="container">
+
+<!-- <div class="container">
     <h2>Nuestras Bebidas</h2>
     <div class="col">
     <div class="d-flex align-content-center" >
@@ -25,4 +46,4 @@
 
 
 
-
+ -->
