@@ -131,7 +131,7 @@ export class AuthComponent implements OnInit {
    let body = { token: localStorage.getItem('token') };
 
    let resp: Observable<Response[]> = this.httpClient
-     .post<Response[]>(`http://localhost:3000/auth/decode`, body)
+     .post<Response[]>(`http://localhost:3000/api/decode`, body)
      .pipe(share());
 
    resp.subscribe(

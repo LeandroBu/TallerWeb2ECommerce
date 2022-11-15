@@ -6,6 +6,7 @@ import { HomeComponent } from './components/home/home.component';
 import { VinoComponent } from './components/vino/vino.component';
 import { WhiskyComponent } from './components/whisky/whisky.component';
 import { InfoBebidaComponent } from './components/info-bebida/info-bebida.component';
+import { VodkaComponent } from './components/vodka/vodka.component';
 
 
 const routes: Routes = [
@@ -14,6 +15,7 @@ const routes: Routes = [
   {path: 'bebidas', component: BebidasComponent},
   {path: 'login', component:AuthComponent},
   {path: 'vino', component:VinoComponent},
+  {path: 'vodka', component: VodkaComponent},
   {path: 'whisky', component:WhiskyComponent},
   {path: 'info/:id', component:InfoBebidaComponent}
 ];

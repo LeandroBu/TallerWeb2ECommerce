@@ -1,20 +1,22 @@
-<div class="container">
-  <div class="col">
-  <div class="d-flex align-content-center" >
-      <ng-container *ngFor="let bebida of whiskys">
-          <mat-card class="example-card" >    
-              <mat-card-header>
-              <div mat-card-avatar class="example-header-image"></div>
-              <mat-card-title>{{bebida.nombre}}</mat-card-title>
-              <mat-card-subtitle>{{bebida.tipo}}</mat-card-subtitle>
-              </mat-card-header>
-              <img mat-card-image src="{{bebida.src}}">
-              <mat-card-content>
-              <h3>
-                  ${{bebida.precio}}
-              </h3>
-              </mat-card-content>      
-          </mat-card> 
-      </ng-container>
-      </div></div>
-</div>
+<div class="movie-items full-width">
+    <div class="title-hd">
+      <h2>Whisky</h2>
+    </div>
+    <div style="display: flex; flex-wrap: wrap">
+      <div *ngFor="let whisky of bebidas">
+        <div *ngIf="whisky.clasificacion == 'Whisky'">
+          <div class="card">
+            <a routerLink="/info/{{ whisky.id }}" class="a">
+              <div class="info">
+                <span style="font-size: 15px; font-weight: bold; color: white"
+                  >Ver info</span
+                >
+              </div>
+              <img class="imagen" src="{{ whisky.img }}" />
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  

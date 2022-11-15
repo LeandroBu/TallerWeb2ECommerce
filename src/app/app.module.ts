@@ -23,6 +23,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { FooterComponent } from './components/footer/footer.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { InfoBebidaComponent } from './components/info-bebida/info-bebida.component';
+import { VodkaComponent } from './components/vodka/vodka.component';
 
 
 @NgModule({
@@ -35,7 +36,8 @@ import { InfoBebidaComponent } from './components/info-bebida/info-bebida.compon
     WhiskyComponent,
     AuthComponent,
     FooterComponent,
-    InfoBebidaComponent
+    InfoBebidaComponent,
+    VodkaComponent
   ],
   imports: [
     BrowserModule,

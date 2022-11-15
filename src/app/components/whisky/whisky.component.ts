@@ -1,4 +1,9 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
+import { Observable, share } from 'rxjs';
+import { Bebida } from 'src/app/models/bebida';
 
 @Component({
   selector: 'app-whisky',
@@ -6,28 +11,26 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./whisky.component.css']
 })
 export class WhiskyComponent implements OnInit {
+  bebidas: Bebida[] = [];
+  Bebida: any;
 
-  whiskys  = [{
-    nombre: 'Johnny Walker',
-    precio: 54000,
-    tipo: 'Blue Label',
-    src: 'https://http2.mlstatic.com/D_NQ_NP_954217-MLA50596692485_072022-W.webp'
-  },
-  {
-    nombre: 'Johnny Walker',
-    precio: 17000,
-    tipo: 'Black Label',
-    src: 'https://http2.mlstatic.com/D_NQ_NP_802663-MLA47007060028_082021-W.webp'
-  },
-  {
-    nombre: 'Johnny Walker',
-    precio: 12000,
-    tipo: 'Gold Label',
-    src: 'https://http2.mlstatic.com/D_NQ_NP_704747-MLA44699198388_012021-W.webp'
-  }];
-  constructor() { }
+  constructor(protected router: Router, 
+    protected http: HttpClient,
+    private toastr: ToastrService) {}
 
   ngOnInit(): void {
-  }
+    let res: Observable<Bebida[]> = this.http
+      .get<Bebida[]>('http://localhost:3000/bebidas')
+      .pipe(share());
 
+    res.subscribe(
+      (value) => {
+        this.Bebida = value;
+        this.bebidas = this.Bebida.bebidas;
+      },
+      (error) => {
+        this.toastr.error('Ocurrió un error');
+      }
+    );
+  }
 }

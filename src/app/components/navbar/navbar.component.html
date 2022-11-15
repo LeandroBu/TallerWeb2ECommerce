@@ -1,8 +1,8 @@
 <mat-toolbar class="bg-primary text-white">
     <button mat-button routerLink="/home"><h1>AnguBar</h1></button>
 
-    <button mat-button [matMenuTriggerFor]="menu" routerLink="/vino">Vinos</button> 
-          <mat-menu #menu="matMenu">
+    <button mat-button routerLink="/vino">Vinos</button> 
+          <!-- <mat-menu #menu="matMenu">
               <button mat-menu-item [matMenuTriggerFor]="vinoPortipo">Por Tipo</button>
               <button mat-menu-item [matMenuTriggerFor]="vinoPorBodega">Por Bodega</button>
           </mat-menu>
@@ -13,11 +13,11 @@
           <mat-menu #vinoPorBodega="matMenu">
             <button mat-menu-item>La Rural</button>
             <button mat-menu-item>Malbec</button>
-          </mat-menu>
+          </mat-menu> -->
 
 
-    <button mat-button [matMenuTriggerFor]="menuCervezas">Cervezas</button> 
-          <mat-menu #menuCervezas="matMenu">
+    <button mat-button routerLink="/vodka">Vodkas</button> 
+          <!-- <mat-menu #menuCervezas="matMenu">
                   <button mat-menu-item [matMenuTriggerFor]="cervezasPorMarca">Por Marca</button>
                   <button mat-menu-item [matMenuTriggerFor]="cervezasPorTipo">Por Tipo</button>
                   <button mat-menu-item [matMenuTriggerFor]="cervezasPorColor">Por Color</button>
@@ -33,10 +33,10 @@
           <mat-menu #cervezasPorColor="matMenu">
             <button mat-menu-item>Rubia</button>
             <button mat-menu-item>Roja</button>
-          </mat-menu>
+          </mat-menu> -->
 
-    <button mat-button [matMenuTriggerFor]="menuWhiskie" routerLink="/whisky">Whiskies</button> 
-            <mat-menu #menuWhiskie="matMenu">
+    <button mat-button routerLink="/whisky">Whiskies</button> 
+            <!-- <mat-menu #menuWhiskie="matMenu">
                 <button mat-menu-item [matMenuTriggerFor]="whiskiePorMarca">Por Marca</button>
                 <button mat-menu-item [matMenuTriggerFor]="whiskiePorTipo">Por Tipo</button>
                 <button mat-menu-item [matMenuTriggerFor]="whiskiePorRegion">Por Región</button>
@@ -52,8 +52,22 @@
             <mat-menu #whiskiePorRegion="matMenu">
               <button mat-menu-item>Escocia</button>
               <button mat-menu-item>Irlanda</button>
-            </mat-menu>    
+            </mat-menu>     -->
 
+              <form
+                style="width: 100%"
+                [formGroup]="formBusqueda"
+                (ngSubmit)="mostrarBusqueda()"
+              >
+                <input
+                  type="text"
+                  class="input-busqueda-inicio"
+                  formControlName="nombre"
+                />
+                <input type="submit" value="Buscar" class="hidden" />
+              </form>
+
+        
     <span class="example-spacer"></span>
 
     <button mat-icon-button class="example-icon favorite-icon" routerLink="/login" aria-label="Example icon-button with heart icon">

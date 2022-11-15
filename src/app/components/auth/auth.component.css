@@ -28,7 +28,6 @@
   .registerLinkP:hover {
     color: #08497e;
     text-decoration: underline;
-    /* transition: ease 0.4s; */
   }
   
   .form-control {

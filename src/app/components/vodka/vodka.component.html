@@ -1,18 +1,18 @@
 <div class="movie-items full-width">
     <div class="title-hd">
-      <h2>Vinos</h2>
+      <h2>Vodka</h2>
     </div>
     <div style="display: flex; flex-wrap: wrap">
-      <div *ngFor="let vino of bebidas">
-        <div *ngIf="vino.clasificacion == 'Vino'">
+      <div *ngFor="let vodka of bebidas">
+        <div *ngIf="vodka.clasificacion == 'Vodka'">
           <div class="card">
-            <a routerLink="/info/{{ vino.id }}" class="a">
+            <a routerLink="/info/{{ vodka.id }}" class="a">
               <div class="info">
                 <span style="font-size: 15px; font-weight: bold; color: white"
                   >Ver info</span
                 >
               </div>
-              <img class="imagen" src="{{ vino.img }}" />
+              <img class="imagen" src="{{ vodka.img }}" />
             </a>
           </div>
         </div>
