@@ -28,7 +28,7 @@ export class AuthComponent implements OnInit {
  constructor(
    protected router: Router,
    private formBuilder: FormBuilder,
-   protected httpClient: HttpClient,
+   protected http: HttpClient,
    private toastr: ToastrService
  ) {
    this.screen = 'login';
@@ -96,7 +96,7 @@ export class AuthComponent implements OnInit {
  login(): any {
    const body = this.formLogin.value;
 
-   let res: Observable<Response[]> = this.httpClient
+   let res: Observable<Response[]> = this.http
      .post<Response[]>(`http://localhost:3000/api/login`, body)
      .pipe(share());
 
@@ -106,8 +106,6 @@ export class AuthComponent implements OnInit {
        this.SetearUserId(); //Decodifico el token y obtengo el ID del usuario
        this.errorsLogin.usuarioIncorrecto = '';
        this.router.navigate(['/']).then(() => {
-        
-        //  window.location.reload(); 
          this.toastr.success('Se ha logueado exitosamente');
        }); //Se dirige al home y refresca
      },
@@ -130,7 +128,7 @@ export class AuthComponent implements OnInit {
  SetearUserId() {
    let body = { token: localStorage.getItem('token') };
 
-   let resp: Observable<Response[]> = this.httpClient
+   let resp: Observable<Response[]> = this.http
      .post<Response[]>(`http://localhost:3000/api/decode`, body)
      .pipe(share());
 
@@ -150,14 +148,13 @@ export class AuthComponent implements OnInit {
    const codigo = this.formConfirmacion.value.codigo;
    const body = { codigo, email: this.email };
 
-   let res: Observable<Response[]> = this.httpClient
+   let res: Observable<Response[]> = this.http
      .post<Response[]>(`http://localhost:3000/api/verificar`, body)
      .pipe(share());
 
    res.subscribe(
      (value) => {
        this.errorsLogin.usuarioNoConfirmado = '';
-      //  alert('Usuario confirmado');
       this.toastr.success('Usuario confirmado con éxito');
        this.router.navigate(['/login']).then(() => {
         window.location.reload();
@@ -202,21 +199,19 @@ export class AuthComponent implements OnInit {
    } else {
      const body = this.formRegistro.value; //LUEGO DE VALIDAR ENVIA LOS DATOS AL BACK
 
-     let res: Observable<Response[]> = this.httpClient
+     let res: Observable<Response[]> = this.http
        .post<Response[]>(`http://localhost:3000/api/registrar`, body)
        .pipe(share());
 
      res.subscribe(
-       //QUE FUNCION REALIZA?
-       () => {
-         alert('Registro exitoso');
+       () => { 
          this.router.navigate(['/login']).then(() => {
+          this.toastr.success('Registro éxitoso');
           window.location.reload();
         });
        },
        () => {
         this.toastr.error('Error al registrar el usuario');
-        //  alert('Error al registrar el usuario');
        }
      );
 

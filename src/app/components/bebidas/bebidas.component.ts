@@ -15,11 +15,11 @@ export class BebidasComponent implements OnInit {
   Bebida: any;
 
   constructor(protected router: Router, 
-    protected httpClient: HttpClient,
+    protected http: HttpClient,
     private toastr: ToastrService) {}
 
   ngOnInit(): void {
-    let res: Observable<Bebida[]> = this.httpClient
+    let res: Observable<Bebida[]> = this.http
       .get<Bebida[]>('http://localhost:3000/bebidas')
       .pipe(share());
 

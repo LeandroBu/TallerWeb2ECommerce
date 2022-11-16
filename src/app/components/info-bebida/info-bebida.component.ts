@@ -24,7 +24,7 @@ export class InfoBebidaComponent implements OnInit {
   id: any;
   constructor(
     protected router: Router,
-    protected httpClient: HttpClient,
+    protected http: HttpClient,
     protected route: ActivatedRoute,
     private toastr: ToastrService
   ) {}
@@ -32,7 +32,7 @@ export class InfoBebidaComponent implements OnInit {
   ngOnInit(): void {
     this.id = this.route.snapshot.paramMap.get('id');
 
-    let res: Observable<Bebida[]> = this.httpClient
+    let res: Observable<Bebida[]> = this.http
       .get<Bebida[]>(`http://localhost:3000/bebidas/${this.id}`)
       .pipe(share());
     res.subscribe(

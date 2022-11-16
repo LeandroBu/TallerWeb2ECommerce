@@ -33,7 +33,7 @@ export class NavbarComponent implements OnInit {
 
   //METODOS
   ngOnInit(): void {
-    //CARGO LAS PELICULAS PARA HACER LA BUSQUEDA CON EL BUSCAR.
+    //CARGO LAS BEBIDAS PARA HACER LA BUSQUEDA CON EL BUSCAR.
     let res: Observable<Bebida[]> = this.httpClient
       .get<Bebida[]>(`http://localhost:3000/bebidas`)
       .pipe(share());
@@ -65,7 +65,7 @@ export class NavbarComponent implements OnInit {
     }
   }
 
-  //EL METODO BUSCAR ME TRAE LA PELICULA QUE LE INDICO SI EXISTE.
+  //EL METODO BUSCAR ME TRAE LA BEBIDA QUE LE INDICO SI EXISTE.
   mostrarBusqueda() {
     this.bebidas.forEach((bebidas) => {
       if (
@@ -74,7 +74,6 @@ export class NavbarComponent implements OnInit {
           .includes(this.formBusqueda.controls['nombre'].value.toLowerCase())
       ) {
         this.router.navigate(['/info/' + bebidas.id]);
-        this.buscador = false;
       }
     });
   }
