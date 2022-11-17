@@ -1,22 +1,22 @@
 <mat-toolbar class="bg-primary text-white">
+  <div *ngIf="isLogged"></div>
     <button mat-button routerLink="/home"><h1>AnguBar</h1></button>
     <button mat-button routerLink="/vino">Vinos</button>     
     <button mat-button routerLink="/vodka">Vodkas</button> 
     <button mat-button routerLink="/whisky">Whiskies</button> 
       
-    <form style="width: 50%" [formGroup]="formBusqueda" (ngSubmit)="mostrarBusqueda()">
-      <input type="text" class="input-busqueda-inicio" formControlName="nombre"/>
-      <input type="submit" value="Buscar" />
-    </form>
-
     <span class="example-spacer"></span>
 
-    <button mat-icon-button class="example-icon favorite-icon" routerLink="/login">
+    <a *ngIf="!isLogged" href="login" class="login nav-link link-white px-2">
       <mat-icon>account_circle</mat-icon>
-    </button>
+    </a>
 
-    <button mat-icon-button class="example-icon favorite-icon">
+    <button  mat-icon-button class="example-icon favorite-icon">
       <mat-icon>shopping_cart</mat-icon>
     </button>
-</mat-toolbar>
 
+    <button *ngIf="isLogged" style="cursor: pointer;" (click)="cerrarSesion()" class="unstyle nav-link link-red px-2">
+      <a><mat-icon>logout</mat-icon></a>
+    </button>
+
+</mat-toolbar>

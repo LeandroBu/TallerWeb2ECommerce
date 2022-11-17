@@ -4,5 +4,4 @@ export interface Usuario{
     direccion: string,
     email: string,
     password: string,
-    estaActivo: boolean
 }

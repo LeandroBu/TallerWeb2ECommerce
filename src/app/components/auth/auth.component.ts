@@ -5,8 +5,11 @@ import { Validators } from '@angular/forms';
 import { FormControl } from '@angular/forms';
 import { FormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
+import { CookieService } from 'ngx-cookie-service';
 import { ToastrService } from 'ngx-toastr';
 import { Observable, share } from 'rxjs';
+import { UsuarioService } from '../../services/usuario.service';
+import { CognitoService } from '../../services/cognito.service';
 
 @Component({
   selector: 'app-auth',
@@ -22,14 +25,23 @@ export class AuthComponent implements OnInit {
  public errors: any;
  public errorsLogin: any;
  public email: string;
+ public password!: string;
+ public nombre!: string;
+ public apellido!: string;
+ public direccion!: string;
  UserId: any;
+ isLogged!: Boolean;
+ authToken: any;
 
  //CONSTRUCTOR
  constructor(
    protected router: Router,
    private formBuilder: FormBuilder,
    protected http: HttpClient,
-   private toastr: ToastrService
+   private toastr: ToastrService,
+   private cookieService: CookieService,
+   private usuarioService: UsuarioService,
+   private cognitoService: CognitoService
  ) {
    this.screen = 'login';
    this.formLogin = FormGroup;
@@ -53,6 +65,10 @@ export class AuthComponent implements OnInit {
  //METODOS
 
  ngOnInit(): void {
+  this.isLogged = this.cookieService.check('token');
+  if (this.isLogged) {
+    this.router.navigate(['/login']);
+  }
    //CREACION DE FORMULARIO LOGIN
    this.formLogin = this.formBuilder.group({
      email: new FormControl('', [Validators.required, Validators.email]),
@@ -95,19 +111,19 @@ export class AuthComponent implements OnInit {
 
  login(): any {
    const body = this.formLogin.value;
+   this.email = this.formLogin.get('email')?.value;
+   this.password = this.formLogin.get('password')?.value;
 
-   let res: Observable<Response[]> = this.http
-     .post<Response[]>(`http://localhost:3000/api/login`, body)
-     .pipe(share());
-
-   res.subscribe(
-     (value) => {
-       localStorage.setItem('token', JSON.stringify(value)); //Resultado del login me da un token
-       this.SetearUserId(); //Decodifico el token y obtengo el ID del usuario
+  this.cognitoService.login(this.email, this.password).subscribe(
+     (respuesta) => {
+      if (respuesta !== null && respuesta !== undefined) {
+        this.authToken = respuesta;
+       this.cookieService.set('token', this.authToken, 4, '/');
        this.errorsLogin.usuarioIncorrecto = '';
        this.router.navigate(['/']).then(() => {
          this.toastr.success('Se ha logueado exitosamente');
        }); //Se dirige al home y refresca
+      }
      },
      (error) => {
        //Si no devuelve el token, es que o el pass o user son incorrectos
@@ -124,35 +140,12 @@ export class AuthComponent implements OnInit {
    );
  }
 
- //IMPLEMENTA EL METODO DECODE EL CUAL ME CONVIERTE EL TOKEN AL ID DEL USUARIO
- SetearUserId() {
-   let body = { token: localStorage.getItem('token') };
-
-   let resp: Observable<Response[]> = this.http
-     .post<Response[]>(`http://localhost:3000/api/decode`, body)
-     .pipe(share());
-
-   resp.subscribe(
-     (value) => {
-       this.UserId = value;
-       localStorage.setItem('IdUser', this.UserId); //seteo el id encodeado en LS
-     },
-     (error) => {
-      //  alert('Ocurrió un error');
-     }
-   );
- }
-
  //VERIFICA EL CODIGO QUE LLEGA A EMAIL Y ACTIVA EL USUARIO PARA EL USO.
  verificar(): any {
    const codigo = this.formConfirmacion.value.codigo;
-   const body = { codigo, email: this.email };
 
-   let res: Observable<Response[]> = this.http
-     .post<Response[]>(`http://localhost:3000/api/verificar`, body)
-     .pipe(share());
-
-   res.subscribe(
+  this.cognitoService.verificar(codigo, this.email).subscribe(
+   
      (value) => {
        this.errorsLogin.usuarioNoConfirmado = '';
       this.toastr.success('Usuario confirmado con éxito');
@@ -197,13 +190,14 @@ export class AuthComponent implements OnInit {
            'La contraseña debe tener mínimo 8, caracteres una letra mayúscula, una minúscula, un número y un carácter especial')
        : (this.errors.password = '');
    } else {
-     const body = this.formRegistro.value; //LUEGO DE VALIDAR ENVIA LOS DATOS AL BACK
+     this.nombre = this.formRegistro.get('nombre')?.value;
+     this.apellido = this.formRegistro.get('apellido')?.value;
+     this.direccion = this.formRegistro.get('direccion')?.value;
+     this.email = this.formRegistro.get('email')?.value;
+     this.password = this.formRegistro.get('password')?.value;
 
-     let res: Observable<Response[]> = this.http
-       .post<Response[]>(`http://localhost:3000/api/registrar`, body)
-       .pipe(share());
-
-     res.subscribe(
+    this.cognitoService.registrar(this.nombre, this.apellido, this.email, this.password,  this.direccion)
+    .subscribe(
        () => { 
          this.router.navigate(['/login']).then(() => {
           this.toastr.success('Registro éxitoso');
