@@ -4,6 +4,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Observable, share } from 'rxjs';
 import { Bebida } from 'src/app/models/bebida';
 import { ToastrService } from 'ngx-toastr';
+import { CarritoService } from 'src/app/services/carrito.service';
 
 @Component({
   selector: 'app-info-bebida',
@@ -17,7 +18,8 @@ export class InfoBebidaComponent implements OnInit {
     img: '',
     descripcion: '',
     precio: '',
-    clasificacion: ''
+    clasificacion: '',
+    cantidad: 0
   };
 
   Bebidas: any;
@@ -26,7 +28,8 @@ export class InfoBebidaComponent implements OnInit {
     protected router: Router,
     protected http: HttpClient,
     protected route: ActivatedRoute,
-    private toastr: ToastrService
+    private toastr: ToastrService,
+    public carritoService: CarritoService
   ) {}
 
   ngOnInit(): void {
@@ -44,5 +47,8 @@ export class InfoBebidaComponent implements OnInit {
         this.toastr.error('Ocurrió un error');
       }
     );
+  }
+  agregarCarrito(item: Bebida){
+    this.carritoService.addToCart(item)
   }
 }
