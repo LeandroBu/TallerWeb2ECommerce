@@ -6,14 +6,8 @@
       <div *ngFor="let vino of bebidas">
         <div *ngIf="vino.clasificacion == 'Vino'">
           <div class="card">
-            <a routerLink="/info/{{ vino.id }}" class="a">
-              <div class="info">
-                <span style="font-size: 15px; font-weight: bold; color: white"
-                  >Ver info</span
-                >
-              </div>
-              <img class="imagen" src="{{ vino.img }}" />
-            </a>
+            <img class="imagen" src="{{ vino.img }}" />
+            <a class="btn btn--angubar" routerLink="/info/{{ vino.id }}">Ver info</a>
           </div>
         </div>
       </div>
