@@ -5,4 +5,5 @@ export interface Bebida{
     precio: string;
     clasificacion: string;
     descripcion:string;
+    cantidad:number | 1;
 }

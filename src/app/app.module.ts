@@ -24,6 +24,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { InfoBebidaComponent } from './components/info-bebida/info-bebida.component';
 import { VodkaComponent } from './components/vodka/vodka.component';
 import { CookieService } from 'ngx-cookie-service';
+import { CarritoComponent } from './components/carrito/carrito.component';
 
 
 @NgModule({
@@ -37,7 +38,8 @@ import { CookieService } from 'ngx-cookie-service';
     AuthComponent,
     FooterComponent,
     InfoBebidaComponent,
-    VodkaComponent
+    VodkaComponent,
+    CarritoComponent
   ],
   imports: [
     BrowserModule,
