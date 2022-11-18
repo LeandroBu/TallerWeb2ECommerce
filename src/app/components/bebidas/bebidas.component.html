@@ -1,19 +1,12 @@
-<div class="bebida-items full-width">
+<div class="">
     <div class="title-hd">
       <h2>Todas las Bebidas </h2>
-      <a routerLink="/bebidas" color="primary">Ver todas</a>
     </div>
-    <div style="display: flex; flex-wrap: wrap" >
+    <div class="card_container">
       <div *ngFor="let bebida of bebidas">
         <div class="card">
-          <a routerLink="/info/{{ bebida.id }}" class="a">
-            <div class="info">
-              <span style="font-size: 15px; font-weight: bold; color: white"
-                >Ver info</span
-              >
-            </div>
-            <img class="imagen" src="{{ bebida.img }}" />
-          </a>
+          <img class="imagen" src="{{ bebida.img }}" />
+          <a routerLink="/info/{{ bebida.id }}" class="btn btn--angubar">Ver info</a>
         </div>
       </div>
     </div>

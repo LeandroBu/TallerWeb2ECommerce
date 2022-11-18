@@ -30,6 +30,12 @@ a:link, a:visited, a:active{
      box-shadow: 10px 10px 41px 0px rgba(88, 88, 88, 0.75);;
    }
 
+   .card_container{
+    display: flex; 
+    flex-wrap: wrap; 
+    height: 60vh;
+    justify-content: center;
+   }
   .imagen{
     width: 100%; 
     padding:0px; 
