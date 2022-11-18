@@ -35,3 +35,18 @@
   .form-control {
     border: 1px solid #333333;
   }
+
+  .login_card{
+   -webkit-box-shadow: 10px 10px 41px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 10px 10px 41px 0px rgba(0,0,0,0.75);
+    box-shadow: 10px 10px 41px 0px rgba(0,0,0,0.75);;
+    border: solid 1px #a8a8a8;
+    border-radius: 2%;
+    padding: 2rem;
+  }
+
+  .login_card:hover{
+    -webkit-box-shadow: 10px 10px 41px 0px rgba(88, 88, 88, 0.75);
+     -moz-box-shadow: 10px 10px 41px 0px rgba(88, 88, 88, 0.75);
+     box-shadow: 10px 10px 41px 0px rgba(88, 88, 88, 0.75);;
+   }
