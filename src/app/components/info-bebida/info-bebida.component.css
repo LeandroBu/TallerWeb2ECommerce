@@ -21,8 +21,6 @@
   }
   
   li {
-    color: white;
-    font-family:Aller;
     border: 1px solid white;
     padding-left: 15px;
     padding-right: 15px;
@@ -45,8 +43,19 @@
   .contenedorInformacion {
     display: flex;
     width: 85%;
-
+    border-radius: 20px;
+    -webkit-box-shadow: 10px 10px 41px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 10px 10px 41px 0px rgba(0,0,0,0.75);
+    box-shadow: 10px 10px 41px 0px rgba(0,0,0,0.75);
+    margin-bottom: 70px;
   }
+
+  .contenedorInformacion:hover{
+    -webkit-box-shadow: 10px 10px 41px 0px rgba(88, 88, 88, 0.75);
+     -moz-box-shadow: 10px 10px 41px 0px rgba(88, 88, 88, 0.75);
+     box-shadow: 10px 10px 41px 0px rgba(88, 88, 88, 0.75);;
+   }
+
   
   .izquierda {
     display: flex;
@@ -58,9 +67,12 @@
     border: 1px solid black;
     display: flex;
     justify-content: space-between;
-    color: whitesmoke;
-    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-size:small;
+    font-weight: bold;
+  }
+
+  .item__info{
+    font-weight: 500;
   }
   
   .derecha {
@@ -72,7 +84,6 @@
   }
   
   .descripcion {
-    font-family: Aller;
     font-size: larger;
     text-align: center
   }
@@ -91,3 +102,13 @@
     transition: 0.4s;
   }
   
+  .btn--angubar{
+    background-color: #ff9200;
+    color: #fafafa;
+    font-weight: bold;
+    letter-spacing: 1px;
+   }
+
+   .btn--angubar:hover{
+    background-color: #ff9100e1;
+   }

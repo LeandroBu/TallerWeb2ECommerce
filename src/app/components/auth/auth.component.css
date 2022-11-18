@@ -58,6 +58,10 @@
     letter-spacing: 1px;
    }
 
+   .btn--angubar:hover{
+    background-color: #ff9100e1;
+   }
+
 @-webkit-keyframes rotate-center {
   0% {
     -webkit-transform: rotate(0);
