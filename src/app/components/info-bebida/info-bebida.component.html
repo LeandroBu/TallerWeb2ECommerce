@@ -1,5 +1,5 @@
-<main class="principal">
-    <div class="contenedorInformacion bg-secondary">
+  <div class="principal">
+    <div class="contenedorInformacion scale-up-center">
   
       <div class="izquierda">
         <div>
@@ -7,19 +7,23 @@
         </div>
   
         <ul class="info-item">
-          <li class="item"> Nombre: <span> {{bebida.nombre}}</span></li>
-          <li class="item"> Precio: <span>{{bebida.precio}}</span></li>
-          <li class="item"> Clasificación: <span>{{bebida.clasificacion}}</span></li>
+          <li class="item"> Nombre: <span class="item__info">{{bebida.nombre}}</span></li>
+          <li class="item"> Precio: <span class="item__info">{{bebida.precio}}</span></li>
+          <li class="item"> Clasificación: <span class="item__info">{{bebida.clasificacion}}</span></li>
         </ul>
       </div>
   
       <div class="derecha">
+
+        <h2>{{bebida.nombre}}</h2>
   
         <p class="descripcion">{{bebida.descripcion}}</p>
         
-        <button class="btn btn-primary" (click)="agregarCarrito(bebida)">Agregar al carrito</button>
+        <button class="btn btn--angubar" (click)="agregarCarrito(bebida)">Agregar al carrito<mat-icon>shopping_cart</mat-icon></button>
+
       </div>
     </div>
   
-  </main>
+  </div>
   <br>
+

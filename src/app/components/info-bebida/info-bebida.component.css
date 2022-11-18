@@ -1,3 +1,7 @@
+h2{
+  font-size: 35px;
+  margin-bottom: 40px;
+}
 .principal {
     margin-top: 80px;
     display: flex;
@@ -21,8 +25,6 @@
   }
   
   li {
-    color: white;
-    font-family:Aller;
     border: 1px solid white;
     padding-left: 15px;
     padding-right: 15px;
@@ -45,8 +47,19 @@
   .contenedorInformacion {
     display: flex;
     width: 85%;
-
+    border-radius: 20px;
+    -webkit-box-shadow: 10px 10px 41px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 10px 10px 41px 0px rgba(0,0,0,0.75);
+    box-shadow: 10px 10px 41px 0px rgba(0,0,0,0.75);
+    margin-bottom: 70px;
   }
+
+  .contenedorInformacion:hover{
+    -webkit-box-shadow: 10px 10px 41px 0px rgba(88, 88, 88, 0.75);
+     -moz-box-shadow: 10px 10px 41px 0px rgba(88, 88, 88, 0.75);
+     box-shadow: 10px 10px 41px 0px rgba(88, 88, 88, 0.75);;
+   }
+
   
   .izquierda {
     display: flex;
@@ -58,23 +71,27 @@
     border: 1px solid black;
     display: flex;
     justify-content: space-between;
-    color: whitesmoke;
-    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-size:small;
+    font-weight: bold;
+  }
+
+  .item__info{
+    font-weight: 500;
   }
   
   .derecha {
     width: 60%;
     display: flex;
     flex-direction: column;
-    align-content: center;
     margin: 25px;
+    align-items: center;
+    justify-content: center;
   }
   
   .descripcion {
-    font-family: Aller;
     font-size: larger;
-    text-align: center
+    text-align: center;
+    margin-bottom: 35px;
   }
   
   .botonFunciones{
@@ -91,3 +108,43 @@
     transition: 0.4s;
   }
   
+  .btn--angubar{
+    background-color: #ff9200;
+    color: #fafafa;
+    font-weight: bold;
+    letter-spacing: 1px;
+    width: 250px;
+    display: flex;
+    justify-content: space-around;
+   }
+
+   .btn--angubar:hover{
+    background-color: #ff9100e1;
+   }
+
+
+   .scale-up-center {
+    -webkit-animation: scale-up-center 0.4s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+            animation: scale-up-center 0.4s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+  }
+
+@-webkit-keyframes scale-up-center {
+  0% {
+    -webkit-transform: scale(0.5);
+            transform: scale(0.5);
+  }
+  100% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+}
+@keyframes scale-up-center {
+  0% {
+    -webkit-transform: scale(0.5);
+            transform: scale(0.5);
+  }
+  100% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+}

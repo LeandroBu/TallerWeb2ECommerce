@@ -1,19 +1,13 @@
-<div class="bebida-items full-width">
+<div class="">
     <div class="title-hd">
       <h2>Whisky</h2>
     </div>
-    <div style="display: flex; flex-wrap: wrap">
+    <div class="card_container">
       <div *ngFor="let whisky of bebidas">
         <div *ngIf="whisky.clasificacion == 'Whisky'">
           <div class="card">
-            <a routerLink="/info/{{ whisky.id }}" class="a">
-              <div class="info">
-                <span style="font-size: 15px; font-weight: bold; color: white"
-                  >Ver info</span
-                >
-              </div>
-              <img class="imagen" src="{{ whisky.img }}" />
-            </a>
+            <img class="imagen" src="{{ whisky.img }}" />
+            <a routerLink="/info/{{ whisky.id }}" class="btn btn--angubar">Ver info</a>
           </div>
         </div>
       </div>

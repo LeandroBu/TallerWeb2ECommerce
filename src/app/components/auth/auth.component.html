@@ -5,8 +5,8 @@
     
     <ng-template [ngIf]="'login' === screen">
       <div class="d-flex flex-column col-10 col-sm-6 col-md-4"><br><br>
-        <div>
-          <div class="text-center">
+        <div class="login_card">
+          <div class="text-center rotate-center">
             <img src="/assets/logo.png" width="200"><br><br>
           </div>
           <p class="loginBienvenido fs-4 fw-bold">Bienvenido!</p><br>
@@ -24,7 +24,7 @@
               
               <p id="emailHelp" class="forgotPassword form-text">¿Olvidaste tu contraseña?</p>
   
-              <button type="submit" class="buttonLogin mt-2 mb-2 btn btn-primary">Ingresar</button>
+              <button type="submit" class="buttonLogin mt-2 mb-2 btn btn--angubar">Ingresar</button>
               
             <!--Mensaje de usuario incorrecto-->
               <div *ngIf="!!errorsLogin.usuarioIncorrecto; then errorLoginUsuario"></div>
@@ -48,8 +48,8 @@
     <!--Si se desea registrar-->
     <ng-template [ngIf]="'registro' === screen">
       <div class="d-flex flex-column col-10 col-sm-6 col-md-4">
-        <div>
-          <div class="text-center">
+        <div class="login_card">
+          <div class="text-center rotate-center">
             <img src="/assets/logo.png" width="200"><br><br>
           </div>
           <p class="mb-3 fs-3 fw-bold">Registrate!</p>
@@ -113,7 +113,7 @@
                 <small class="text-danger">{{ errors.password }}</small>
               </ng-template>
   
-              <button type="submit" class="buttonLogin mt-4 mb-2 btn btn-primary">
+              <button type="submit" class="buttonLogin mt-4 mb-2 btn btn--angubar">
                 Registrarse
               </button>
             </div>
