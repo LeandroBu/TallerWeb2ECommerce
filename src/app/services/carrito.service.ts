@@ -48,4 +48,14 @@ export class CarritoService {
     }
     return this.bebidas;
    }
+
+   deleteBebidas(bebida:Bebida){
+    for (let i = 0; i < this.bebidas.length; i++) {
+      if (bebida.id == this.bebidas[i].id) {
+        this.bebidas.splice(i, 1);
+        localStorage.setItem('bebidas', JSON.stringify(this.bebidas));
+        window.location.href = '/carrito';
+      }
+    }
+   }
 }

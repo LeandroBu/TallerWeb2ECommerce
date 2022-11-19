@@ -14,6 +14,7 @@ export class UsuarioService {
       this.http.post<Sesion>(url, usuario).subscribe
         (value => {
           resolve(value);
+          console.log(value)
         }
         , error => {
           reject({ Message: this.parseError(error), IdToken: '' })     

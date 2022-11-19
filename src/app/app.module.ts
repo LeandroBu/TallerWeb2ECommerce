@@ -25,6 +25,7 @@ import { InfoBebidaComponent } from './components/info-bebida/info-bebida.compon
 import { VodkaComponent } from './components/vodka/vodka.component';
 import { CookieService } from 'ngx-cookie-service';
 import { CarritoComponent } from './components/carrito/carrito.component';
+import { ProductoCarritoComponent } from './components/producto-carrito/producto-carrito.component';
 
 
 @NgModule({
@@ -39,7 +40,8 @@ import { CarritoComponent } from './components/carrito/carrito.component';
     FooterComponent,
     InfoBebidaComponent,
     VodkaComponent,
-    CarritoComponent
+    CarritoComponent,
+    ProductoCarritoComponent
   ],
   imports: [
     BrowserModule,
