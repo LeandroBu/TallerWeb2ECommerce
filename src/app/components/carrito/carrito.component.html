@@ -1,2 +1,6 @@
 <p>carrito works!</p>
-<app-producto-carrito *ngFor="let bebida of bebidas" [bebida]="bebida"></app-producto-carrito>
+<app-producto-carrito *ngFor="let bebida of bebidas" [bebida]="bebida">
+    
+</app-producto-carrito>
+
+<button *ngIf="isLogged"  class="btn btn-success" (click)="comprar()">Comprar</button>
