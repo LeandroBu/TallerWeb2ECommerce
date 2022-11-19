@@ -54,6 +54,8 @@ h2{
     margin-bottom: 70px;
   }
 
+
+
   .contenedorInformacion:hover{
     -webkit-box-shadow: 10px 10px 41px 0px rgba(88, 88, 88, 0.75);
      -moz-box-shadow: 10px 10px 41px 0px rgba(88, 88, 88, 0.75);
@@ -147,4 +149,11 @@ h2{
     -webkit-transform: scale(1);
             transform: scale(1);
   }
+}
+
+@media screen and (max-width: 900px) {
+    .contenedorInformacion{
+      flex-direction: column;
+      align-items: center;
+    }
 }

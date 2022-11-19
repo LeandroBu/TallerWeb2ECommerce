@@ -1,7 +1,7 @@
 .footer {
     width: 100%;
-    position: absolute;
     bottom: 0;
+    left: 0;
   }
 
 .footer--fondo{
@@ -11,4 +11,14 @@
 h5{
   font-weight: bold;
   color: #ff9200;
+}
+
+@media screen and (max-width: 900px){
+  .footer{
+    position: fixed;
+  }
+
+  .footer_lista{
+    display: none;
+  }
 }
