@@ -13,6 +13,7 @@ import { CarritoService } from 'src/app/services/carrito.service';
 export class ProductoCarritoComponent {
   @Input()
   bebida!: Bebida;
+  bebidas: Bebida[] = [];
   
   constructor(
     protected router: Router,

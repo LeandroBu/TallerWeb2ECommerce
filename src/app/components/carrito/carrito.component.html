@@ -1,6 +1,32 @@
-<p>carrito works!</p>
-<app-producto-carrito *ngFor="let bebida of bebidas" [bebida]="bebida">
-    
-</app-producto-carrito>
+<div class="full-width">  
+    <table class="table table-hover table-dark mt-5">
+      <thead>
+        <tr>
+          <th>Foto</th>
+          <th>Nombre</th>
+          <th>Precio</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let bebida of bebidas">
+          <td>
+            <img
+              src="{{ bebida.img}}"
+              alt="{{ bebida.nombre }}"
+              width="100"
+            />
+          </td>
+          <td>{{ bebida.nombre }}</td>
+          <td>${{bebida.precio}}</td>
+       
+          <td><button class="btn btn-danger" (click)="borrarProducto(bebida)"> Borrar</button></td>
+       </tr>
+      </tbody>
+    </table>
+</div>
+
+          
+
 
 <button *ngIf="isLogged"  class="btn btn-success" (click)="comprar()">Comprar</button>

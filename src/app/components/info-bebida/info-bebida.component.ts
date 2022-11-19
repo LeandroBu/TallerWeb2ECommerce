@@ -52,7 +52,8 @@ export class InfoBebidaComponent implements OnInit {
     );
   }
   agregarCarrito(item: Bebida){
-    this.carritoService.addToCart(item)
+    this.carritoService.addToCart(item);
+    this.toastr.success("Se ha agregado el producto al carrito");
   }
   bajarBebida(bebida:Bebida){
     console.log(bebida)

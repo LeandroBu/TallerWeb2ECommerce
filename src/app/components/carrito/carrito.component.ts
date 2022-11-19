@@ -25,7 +25,6 @@ export class CarritoComponent implements OnInit, DoCheck{
 
   ngOnInit(){
     this.bebidas = this.carritoService.getBebidas()
-    console.log(this.bebidas)
   }
 
   ngDoCheck(): void {
@@ -40,5 +39,9 @@ export class CarritoComponent implements OnInit, DoCheck{
     else{
     this.toastr.error("El carrito está vacío")
     }
+  }
+
+  borrarProducto(bebida:Bebida){
+    this.carritoService.deleteBebidas(bebida);
   }
 }
