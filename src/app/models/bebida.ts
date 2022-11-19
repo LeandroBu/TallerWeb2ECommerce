@@ -6,4 +6,5 @@ export interface Bebida{
     clasificacion: string;
     descripcion:string;
     cantidad:number | 1;
+    stock:number | 20;
 }

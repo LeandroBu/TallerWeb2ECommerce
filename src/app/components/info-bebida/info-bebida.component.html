@@ -1,29 +1,57 @@
-  <div class="principal">
-    <div class="contenedorInformacion scale-up-center">
-  
-      <div class="izquierda">
-        <div>
-          <img src="{{bebida.img}}" style="height:400px;" />
-        </div>
-  
-        <ul class="info-item">
-          <li class="item"> Nombre: <span class="item__info">{{bebida.nombre}}</span></li>
-          <li class="item"> Precio: <span class="item__info">{{bebida.precio}}</span></li>
-          <li class="item"> Clasificación: <span class="item__info">{{bebida.clasificacion}}</span></li>
-        </ul>
+<div class="principal">
+  <div class="contenedorInformacion scale-up-center">
+    <div class="izquierda">
+      <div>
+        <img src="{{ bebida.img }}" style="height: 400px" />
       </div>
-  
-      <div class="derecha">
 
-        <h2>{{bebida.nombre}}</h2>
-  
-        <p class="descripcion">{{bebida.descripcion}}</p>
-        
-        <button class="btn btn--angubar" (click)="agregarCarrito(bebida)">Agregar al carrito<mat-icon>shopping_cart</mat-icon></button>
+      <ul class="info-item">
+        <li class="item">
+          Nombre: <span class="item__info">{{ bebida.nombre }}</span>
+        </li>
+        <li class="item">
+          Precio: <span class="item__info">{{ bebida.precio }}</span>
+        </li>
+        <li class="item">
+          Clasificación:
+          <span class="item__info">{{ bebida.clasificacion }}</span>
+        </li>
+      </ul>
+    </div>
 
+    <div class="derecha">
+      <h2>{{ bebida.nombre }}</h2>
+
+      <p class="descripcion">{{ bebida.descripcion }}</p>
+
+      <button class="btn btn--angubar" (click)="agregarCarrito(bebida)">
+        Agregar al carrito<mat-icon>shopping_cart</mat-icon>
+      </button>
+      <div class="input-group">
+        <button
+          type="button"
+          class="btn btn-primary btn-md"
+          (click)="bajarBebida(bebida); setCantidad(bebida)"
+        >
+          -
+        </button>
+        <input
+          type="number"
+          value="{{bebida.cantidad}}"
+          [(ngModel)]="bebida.cantidad"
+          style="width: 80px !important"
+          (change)="setCantidad(bebida)"
+          (focusout)="verificarCantidad(bebida)"
+        />
+        <button
+          type="button"
+          class="btn btn-primary btn-md"
+          (click)="subirBebida(bebida); setCantidad(bebida)"
+        >
+          +
+        </button>
       </div>
     </div>
-  
   </div>
-  <br>
-
+</div>
+<br />

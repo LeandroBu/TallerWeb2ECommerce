@@ -12,6 +12,7 @@ import { CarritoService } from 'src/app/services/carrito.service';
   styleUrls: ['./info-bebida.component.css']
 })
 export class InfoBebidaComponent implements OnInit {
+  
   bebida: Bebida = {
     id: 0,
     nombre: '',
@@ -19,7 +20,8 @@ export class InfoBebidaComponent implements OnInit {
     descripcion: '',
     precio: '',
     clasificacion: '',
-    cantidad: 0
+    cantidad: 1,
+    stock: 10
   };
 
   Bebidas: any;
@@ -41,6 +43,7 @@ export class InfoBebidaComponent implements OnInit {
     res.subscribe(
       (value) => {
         this.Bebidas = value;
+        //this.bebida.cantidad = <number>this.Bebidas[0].cantidad;
         this.bebida = this.Bebidas;
       },
       (error) => {
@@ -50,5 +53,17 @@ export class InfoBebidaComponent implements OnInit {
   }
   agregarCarrito(item: Bebida){
     this.carritoService.addToCart(item)
+  }
+  bajarBebida(bebida:Bebida){
+    console.log(bebida)
+  }
+  setCantidad(bebida:Bebida){
+    console.log(bebida)
+  }
+  verificarCantidad(bebida:Bebida){
+    console.log(bebida)
+  }
+  subirBebida(bebida:Bebida){
+    console.log(bebida)
   }
 }
